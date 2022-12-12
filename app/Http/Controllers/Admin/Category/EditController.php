@@ -7,12 +7,11 @@ use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class EditController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Category $category)
     {
-        $categories = Category::all();
         $current_time = Carbon::now()->year;
-        return view('admin.categories.index', compact('categories', 'current_time'));
+        return view('admin.categories.edit', compact('category','current_time'));
     }
 }

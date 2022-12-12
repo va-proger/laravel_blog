@@ -67,6 +67,19 @@ class Service
         }
         return $category;
     }
+    public function updateCategory($data, $category)
+    {
+        try {
+            Db::beginTransaction();
+            $category->update($data);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
+        }
+
+        return $category->fresh();
+    }
     private function getCategoryId($item)
     {
         $category = !isset($item['id']) ? Category::create($item) : Category::find($item['id']);
