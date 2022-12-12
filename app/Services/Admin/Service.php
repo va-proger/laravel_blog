@@ -124,4 +124,32 @@ class Service
         }
         return $category->id;
     }
+
+    public function storeTag(mixed $data)
+    {
+        try {
+            Db::beginTransaction();
+            $tag = Tag::firstOrCreate($data);
+            DB::commit();
+        }catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
+        }
+        return $tag;
+
+    }
+
+    public function updateTag(mixed $data, $tag)
+    {
+        try {
+            Db::beginTransaction();
+            $tag->update($data);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
+        }
+
+        return $tag->fresh();
+    }
 }
