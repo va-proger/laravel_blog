@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('title')
-    Категории
+    Категория {{ $category->title }}
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -41,7 +41,7 @@
                                             <td>{{ $category->id }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Название</td> 
+                                            <td>Название</td>
                                             <td>{{ $category->title }}</td>
                                         </tr>
                                     </tbody>
