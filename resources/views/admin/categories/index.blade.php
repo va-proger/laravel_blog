@@ -30,7 +30,8 @@
                 <div class="row">
                     <div class="col-12  mb-3">
                         <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary"
-                           style="max-width: max-content">Добавить</a>
+                           style="max-width: max-content">Добавить <i class="fas fa-plus"></i></a>
+
                     </div>
                 </div>
                 <div class="row">
@@ -58,7 +59,7 @@
                                                 <a href="{{ route('admin.category.show', $category->id) }}"><i class="fas fa-solid fa-eye"></i></a>
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.category.edit', $category->id) }}"><i class="fas fa-solid fa-pen"></i></a>
+                                                <a href="{{ route('admin.category.edit', $category->id) }}" class="text-success"><i class="fas fa-solid fa-pen"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
