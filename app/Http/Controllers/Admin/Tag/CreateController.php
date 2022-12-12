@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Tag;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
     public function __invoke()
     {
         $current_time = Carbon::now()->year;
-        return view('admin.category.create', compact('current_time'));
+        return view('admin.tag.create', compact('current_time'));
     }
 }

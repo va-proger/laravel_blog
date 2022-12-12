@@ -13,6 +13,6 @@ class IndexController extends Controller
     {
         $categories = Category::all();
         $current_time = Carbon::now()->year;
-        return view('admin.categories.index', compact('categories', 'current_time'));
+        return view('admin.category.index', compact('categories', 'current_time'));
     }
 }

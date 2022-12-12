@@ -12,6 +12,6 @@ class ShowController extends Controller
     public function __invoke(Category $category)
     {
         $current_time = Carbon::now()->year;
-        return view('admin.categories.show', compact('category', 'current_time'));
+        return view('admin.category.show', compact('category', 'current_time'));
     }
 }
