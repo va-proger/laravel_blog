@@ -6,20 +6,21 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class Service
 {
-    public function store($data)
+    public function storePost($data)
     {
         try {
             Db::beginTransaction();
-            $tags = $data['tags'];
-            $category = $data['category'];
-            unset($data['tags'], $data['category']);
+            $tagIds = $data['tag_ids'];
+            unset($data['tag_ids']);
 
-            $tagIds = $this->getTagIds($tags);
-            $data['category_id'] = $this->getCategoryId($category);
-            $post = Post::create($data);
+
+            $data['preview_image'] = Storage::put('/images/preview', $data['preview_image'] );
+            $data['main_image'] = Storage::put('/images/main', $data['main_image'] );
+            $post = Post::firstOrCreate($data);
             $post->tags()->attach($tagIds);
             DB::commit();
         } catch (\Exception $exception) {
@@ -30,22 +31,12 @@ class Service
         return $post;
     }
 
-    public function update($post, $data)
+    public function updatePost($post, $data)
     {
         try {
             Db::beginTransaction();
-            $tags = $data['tags'];
-            $category = $data['category'];
-            unset($data['tags'], $data['category']);
-
-
-            $tagIds = $this->getTagIdsWithUpdate($tags);
-
-            $data['category_id'] = $this->getCategoryIdWithUpdate($category);
 
             $post->update($data);
-
-            $post->tags()->sync($tagIds);
             DB::commit();
         } catch (\Exception $exception) {
 
@@ -79,22 +70,6 @@ class Service
         }
 
         return $category->fresh();
-    }
-    private function getCategoryId($item)
-    {
-        $category = !isset($item['id']) ? Category::create($item) : Category::find($item['id']);
-        return $category->id;
-    }
-
-    private function getTagIds($tags)
-    {
-        $tagIds = [];
-        foreach ($tags as $tag) {
-
-            $tag = !isset($tag['id']) ? Tag::create($tag) : Tag::find($tag['id']);
-            $tagIds[] = $tag->id;
-        }
-        return $tagIds;
     }
 
     private function getTagIdsWithUpdate($tags)
