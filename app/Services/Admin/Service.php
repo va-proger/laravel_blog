@@ -13,14 +13,14 @@ class Service
     {
         try {
             Db::beginTransaction();
-            $tags = $data['tags'];
-            $category = $data['category'];
-            unset($data['tags'], $data['category']);
+//            $tags = $data['tags'];
+//            $category = $data['category'];
+//            unset($data['tags'], $data['category']);
 
-            $tagIds = $this->getTagIds($tags);
-            $data['category_id'] = $this->getCategoryId($category);
+//            $tagIds = $this->getTagIds($tags);
+//            $data['category_id'] = $this->getCategoryId($category);
             $post = Post::create($data);
-            $post->tags()->attach($tagIds);
+//            $post->tags()->attach($tagIds);
             DB::commit();
         } catch (\Exception $exception) {
 
@@ -30,7 +30,7 @@ class Service
         return $post;
     }
 
-    public function update($post, $data)
+    public function updatePost($post, $data)
     {
         try {
             Db::beginTransaction();
