@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class Service
 {
-    public function store($data)
+    public function storePost($data)
     {
         try {
             Db::beginTransaction();
