@@ -18,8 +18,8 @@ class Service
             unset($data['tag_ids']);
 
 
-            $data['preview_image'] = Storage::put('/images/preview', $data['preview_image'] );
-            $data['main_image'] = Storage::put('/images/main', $data['main_image'] );
+            $data['preview_image'] = Storage::disk('public')->put('/images/preview', $data['preview_image'] );
+            $data['main_image'] = Storage::disk('public')->put('/images/main', $data['main_image'] );
             $post = Post::firstOrCreate($data);
             $post->tags()->attach($tagIds);
             DB::commit();
@@ -35,8 +35,14 @@ class Service
     {
         try {
             Db::beginTransaction();
+            $tagIds = $data['tag_ids'];
+            unset($data['tag_ids']);
+
+            $data['preview_image'] = Storage::disk('public')->put('/images/preview', $data['preview_image'] );
+            $data['main_image'] = Storage::disk('public')->put('/images/main', $data['main_image'] );
 
             $post->update($data);
+            $post->tags()->sync($tagIds);
             DB::commit();
         } catch (\Exception $exception) {
 

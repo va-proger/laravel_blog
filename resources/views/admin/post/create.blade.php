@@ -90,7 +90,7 @@
                             <label>Теги</label>
                             <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выбириет теги" style="width: 100%;">
                                 @foreach($tags as $tag)
-                                    <option value="{{ $tag->id }}"
+                                    <option value="{{ $tag->id }}"git
                                     {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}}
                                     >{{ $tag->title }}</option>
                                 @endforeach
