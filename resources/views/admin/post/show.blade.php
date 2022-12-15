@@ -60,7 +60,7 @@
                                             <td>Категория</td>
                                             <td><span data-category-id="{{$post->category->id}}" class="badge badge-secondary">{{ $post->category->title }}</span></td>
                                         </tr>
-                                        <tr>
+                                 <tr>
                                             <td>Теги</td>
                                             <td>
                                                 @foreach($post->tags as $tag)
@@ -71,12 +71,13 @@
 
                                         <tr>
                                             <td class="w-25">Превью изображение</td>
-                                            <td class="show-blade-preview-image"><img src="{{ url('storage/' . $post->preview_image) }}" alt="" class=""></td>
+                                            <td class="w-75 show-blade-image"><img src="{{ url('storage/' . $post->preview_image) }}" alt="" class=""></td>
                                         </tr>
                                         <tr>
                                             <td class="w-25">Основное изображение</td>
-                                            <td class="w-75 show-blade-main-image">
+                                            <td class="w-75 show-blade-image">
                                                 <img src="{{ url('storage/' . $post->main_image) }}" alt="" class="">
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -94,10 +95,8 @@
         <!-- /.content -->
     </div>
     <style>
-        .show-blade-preview-image img{
-            width: auto;
-            height: 100%;
-            object-fit: contain;
+        .show-blade-image img{
+            height: 250px;
         }
     </style>
 @endsection
