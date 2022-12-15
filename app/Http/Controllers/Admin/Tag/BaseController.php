@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\Admin\Tag;
 
 use App\Http\Controllers\Controller;
-use App\Services\Admin\Service;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Services\TagsService;
 
 class BaseController extends Controller
 {
     public $service;
 
-    public function __construct(Service $service)
+    public function __construct(TagsService $service)
     {
         $this->service = $service;
     }

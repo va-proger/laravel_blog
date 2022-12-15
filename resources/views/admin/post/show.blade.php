@@ -36,7 +36,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-8">
 
                         <div class="card">
 
@@ -70,12 +70,14 @@
                                         </tr>
 
                                         <tr>
-                                            <td>Превью изображение</td>
-                                            <td class="w-50"><img src="{{ url('storage/' . $post->preview_image) }}" alt="" class="img-fluid"></td>
+                                            <td class="w-25">Превью изображение</td>
+                                            <td class="show-blade-preview-image"><img src="{{ url('storage/' . $post->preview_image) }}" alt="" class=""></td>
                                         </tr>
                                         <tr>
-                                            <td>Основное изображение</td>
-                                            <td class="w-50"><img src="{{ url('storage/' . $post->main_image) }}" alt="" class="img-fluid"></td>
+                                            <td class="w-25">Основное изображение</td>
+                                            <td class="w-75 show-blade-main-image">
+                                                <img src="{{ url('storage/' . $post->main_image) }}" alt="" class="">
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -91,4 +93,11 @@
         <!-- /.content -->
         <!-- /.content -->
     </div>
+    <style>
+        .show-blade-preview-image img{
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
 @endsection
