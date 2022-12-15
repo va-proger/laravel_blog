@@ -75,8 +75,11 @@
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['fontsize', ['fontsize']],
                 ['color', ['color']],
+                ['table', ['table']],
                 ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
+                ['height', ['height']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
             ]
         });
     });

@@ -36,7 +36,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-8">
 
                         <div class="card">
 
@@ -60,7 +60,7 @@
                                             <td>Категория</td>
                                             <td><span data-category-id="{{$post->category->id}}" class="badge badge-secondary">{{ $post->category->title }}</span></td>
                                         </tr>
-                                        <tr>
+                                 <tr>
                                             <td>Теги</td>
                                             <td>
                                                 @foreach($post->tags as $tag)
@@ -70,12 +70,15 @@
                                         </tr>
 
                                         <tr>
-                                            <td>Превью изображение</td>
-                                            <td class="w-50"><img src="{{ url('storage/' . $post->preview_image) }}" alt="" class="img-fluid"></td>
+                                            <td class="w-25">Превью изображение</td>
+                                            <td class="w-75 show-blade-image"><img src="{{ url('storage/' . $post->preview_image) }}" alt="" class=""></td>
                                         </tr>
                                         <tr>
-                                            <td>Основное изображение</td>
-                                            <td class="w-50"><img src="{{ url('storage/' . $post->main_image) }}" alt="" class="img-fluid"></td>
+                                            <td class="w-25">Основное изображение</td>
+                                            <td class="w-75 show-blade-image">
+                                                <img src="{{ url('storage/' . $post->main_image) }}" alt="" class="">
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -91,4 +94,9 @@
         <!-- /.content -->
         <!-- /.content -->
     </div>
+    <style>
+        .show-blade-image img{
+            height: 250px;
+        }
+    </style>
 @endsection

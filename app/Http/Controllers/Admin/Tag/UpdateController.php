@@ -10,7 +10,7 @@ class UpdateController extends BaseController
     public function __invoke(UpdateRequest $request, Tag $tag)
     {
         $data = $request->validated();
-        $tag = $this->service->updateTag($data, $tag);
+        $tag = $this->service->update($data, $tag);
         return $tag instanceof Tag ? redirect()->route('admin.tag.show', $tag->id) : $tag;
     }
 }
