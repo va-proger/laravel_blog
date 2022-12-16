@@ -12,6 +12,7 @@ class EditController extends Controller
     public function __invoke(User $user)
     {
         $current_time = Carbon::now()->year;
-        return view('admin.user.edit', compact('user','current_time'));
+        $roles = User::getRoles();
+        return view('admin.user.edit', compact('user', 'roles', 'current_time'));
     }
 }
