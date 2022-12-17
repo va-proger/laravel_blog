@@ -18,7 +18,7 @@ class UserService
     {
         try {
             Db::beginTransaction();
-            
+
             $password = Str::random(10);
             $data['password'] = Hash::make($password);
             $user = User::firstOrCreate(['email' => $data['email']], $data);
