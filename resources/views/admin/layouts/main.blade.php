@@ -39,7 +39,9 @@
             </ul>
             <ul class="navbar-nav ">
                 <li class="nav-item bg-gradient-dark d-flex align-items-center justify-content-center mr-2 border rounded border-white user-avatar-wrap">
+                    @if(!empty(Auth::user()->avatar))
                     <span class="rounded-circle user-avatar"><img src="{{  url('storage/' . Auth::user()->avatar) }}" alt="{{  Auth::user()->name }}"> </span>
+                    @endif
                     <a class="text-uppercase fw-bold text-white" href="/admin/users/{{  Auth::user()->id }}">{{  Auth::user()->name }} </a>
                 </li>
                 <li class="nav-item d-flex justify-content-center align-items-center">
