@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-12">
 
-                    <form action="{{  route('admin.user.update', $user->id) }}" method="POST" class="w-25 ">
+                    <form action="{{  route('admin.user.update', $user->id) }}" method="POST" class="w-25 " enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
@@ -43,6 +43,25 @@
                         <div class="form-group">
                             <input type="email" name="email" class="form-control" placeholder="Ваша почта"  value="{{ $user->email }}">
                             @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputFile">Добавить аватар</label>
+                            <div class="w-100 mb-2">
+                                <img src="{{ url('storage/' . $user->avatar ) }}" alt="" class="w-50">
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+
+                                    <input type="file" class="custom-file-input" name="avatar" >
+                                    <label class="custom-file-label"  >Выберите изображение</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Загрузка</span>
+                                </div>
+                            </div>
+                            @error('main_image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>

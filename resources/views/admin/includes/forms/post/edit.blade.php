@@ -21,7 +21,7 @@
         <div class="input-group">
             <div class="custom-file">
                 <input type="file" class="custom-file-input" name="preview_image"  >
-                <label class="custom-file-label"  >Выберите изображение</label>
+                <label class="custom-file-label">Выберите изображение</label>
             </div>
             <div class="input-group-append">
                 <span class="input-group-text">Загрузка</span>
@@ -50,7 +50,7 @@
         <div class="text-danger">{{ $message }}</div>
         @enderror
     </div>
-    <div class="form-group w-25">
+    <div class="form-group w-50">
         <label>Выбирите категорию</label>
         <select name="category_id" class="custom-select">
             @foreach($categories as $category)
