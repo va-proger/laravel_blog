@@ -1,6 +1,9 @@
 @extends('admin.layouts.main')
 @section('title')
-    Создать пользователя
+    {{ __('Создать пользователя') }}
+@endsection
+@section('admin_breadcrumbs_last')
+    {{ __('Создать пользователя') }}
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -9,14 +12,9 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавление пользователя</h1>
+                    <h1 class="m-0"> {{ __('Создать пользователя') }}</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div><!-- /.col -->
+                @include('admin.includes.breadcrumbs.admin.breadcrumbs')
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
