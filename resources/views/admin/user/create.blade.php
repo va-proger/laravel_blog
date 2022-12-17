@@ -43,13 +43,13 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control" placeholder="Пароль">
-                            @error('password')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group w-25">
+{{--                        <div class="form-group">--}}
+{{--                            <input type="password" name="password" class="form-control" placeholder="Пароль">--}}
+{{--                            @error('password')--}}
+{{--                                <div class="text-danger">{{ $message }}</div>--}}
+{{--                            @enderror--}}
+{{--                        </div>--}}
+                        <div class="form-group ">
                             <label>Выбирите группу</label>
                             <select name="role" class="custom-select">
                                 @foreach($roles as $id => $role)
