@@ -15,6 +15,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $current_time = Carbon::now()->year;
-        return view('personal.liked.index', compact( 'current_time'));
+        $posts = auth()->user()->likedPosts;
+        return view('personal.liked.index', compact( 'current_time', 'posts'));
     }
 }
