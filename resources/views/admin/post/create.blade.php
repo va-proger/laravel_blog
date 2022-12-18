@@ -1,4 +1,5 @@
 @extends('admin.layouts.main')
+
 @section('title')
     {{ __('Добавление поста') }}
 @endsection
@@ -33,6 +34,7 @@
             <!-- /.row -->
 
         </div><!-- /.container-fluid -->
+
     </section>
     <!-- /.content -->
     <!-- /.content -->

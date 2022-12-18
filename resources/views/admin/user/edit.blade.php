@@ -53,7 +53,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
 
-                                    <input type="file" class="custom-file-input" name="avatar" >
+                                    <input type="file" class="custom-file-input" name="avatar" accept=".png, .jpg, .jpeg">
                                     <label class="custom-file-label"  >Выберите изображение</label>
                                 </div>
                                 <div class="input-group-append">
@@ -64,7 +64,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="form-group w-50">
+                        <div class="form-group">
                             <label>Выбирите группу</label>
                             <select name="role" class="custom-select">
 
