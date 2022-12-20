@@ -56,7 +56,7 @@
                                         </tr>
                                         <tr>
                                             <td>Категория</td>
-                                            <td><span data-category-id="{{$post->category->id}}" class="badge badge-secondary">{{ $post->category->title }}</span></td>
+                                            <td><span data-category-id="{{ $post->category->id }}" class="badge badge-secondary">{{ $post->category->title }}</span></td>
                                         </tr>
                                  <tr>
                                             <td>Теги</td>
