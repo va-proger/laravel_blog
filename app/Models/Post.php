@@ -31,4 +31,9 @@ class Post extends Model
             ]
         ];
     }
+    public function likedUsers()
+    {
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'post_id', 'user_id');
+
+    }
 }

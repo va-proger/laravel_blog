@@ -44,50 +44,27 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ route('personal.comment.update', $comment->id) }}" method="POST" class=" " >
+                        @csrf
+                        @method('PATCH')
+                        <div class="form-group w-50">
+                            <textarea  class="form-control" name="message" cols="50" rows="5">{{ $comment->message }}</textarea>
+                            @error('message')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-        </div>
-        <div class="col-6">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Обновить">
+                        </div>
+                    </form>
 
-            <div class="card">
-
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <thead>
-
-                        <tr>
-                            <th>ID</th>
-                            <th>Название</th>
-                            <th colspan="3" class="text-center">Действие</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($comments as $comment)
-                            <tr>
-                                <td>{{ $comment->id }}</td>
-                                <td>{{ $comment->message }}</td>
-                                <td class="text-center">
-                                    <a href="{{ route('personal.comment.edit', $comment->id) }}" class="text-success"><i class="fas fa-solid fa-pen"></i></a>
-                                </td>
-
-                                <td class="text-center">
-                                    <form action="{{ route('personal.comment.delete', $comment->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="bg-transparent border-0" type="submit" role="button" > <i class="text-danger fas fa-trash"></i></button>
-
-                                    </form>
-                                </td>
-
-
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
                 </div>
-                <!-- /.card-body -->
             </div>
         </div>
+
     </section>
 </div>
 @endsection
