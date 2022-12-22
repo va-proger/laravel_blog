@@ -14,7 +14,8 @@ class Post extends Model
     use Sluggable;
     protected $table = 'posts';
     protected $guarded = false;
-
+    protected $withCount = ['likedUsers'];
+    protected $with = ['category'];
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
@@ -33,7 +34,7 @@ class Post extends Model
     }
     public function likedUsers()
     {
-        return $this->belongsToMany(Post::class, 'post_user_likes', 'post_id', 'user_id');
+        return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
 
     }
     public function comments()
